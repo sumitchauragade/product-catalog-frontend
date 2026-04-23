@@ -89,19 +89,19 @@ export default function ProductDetailPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-950 dark:to-slate-900 py-8 sm:py-12">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-950 dark:to-slate-900 w-full py-8 sm:py-12">
+      <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-10">
         {/* Back Button */}
-        <Link href="/" className="inline-flex items-center gap-2 text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 font-semibold mb-8 transition">
+        <Link href="/" className="inline-flex items-center gap-2 text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 font-bold mb-12 transition">
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
           Back to Products
         </Link>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 mb-16">
           {/* Product Image */}
-          <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-gray-100 dark:border-slate-700 p-8 flex items-center justify-center h-96">
+          <div className="bg-white dark:bg-slate-800 rounded-3xl shadow-lg border border-gray-100 dark:border-slate-700 p-8 flex items-center justify-center h-96">
             <div className="w-full h-full bg-gradient-to-br from-indigo-100 to-pink-100 dark:from-indigo-900 dark:to-pink-900 rounded-lg flex items-center justify-center relative">
               <div className="absolute inset-0 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 opacity-10"></div>
               <svg className="w-32 h-32 text-gray-400 dark:text-gray-600" fill="currentColor" viewBox="0 0 20 20">
@@ -114,7 +114,7 @@ export default function ProductDetailPage() {
           <div>
             <div className="mb-6">
               <div className="flex items-center gap-3 mb-4">
-                <span className="text-sm font-semibold bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-4 py-2 rounded-full">
+                <span className="text-sm font-bold bg-gradient-to-r from-indigo-500 to-pink-500 text-white px-4 py-2 rounded-full">
                   {product.category}
                 </span>
                 <span className={`text-sm font-semibold px-4 py-2 rounded-full ${
@@ -151,17 +151,17 @@ export default function ProductDetailPage() {
             </div>
 
             {/* Order Section */}
-            <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-gray-100 dark:border-slate-700 p-6 mb-6">
+            <div className="bg-white dark:bg-slate-800 rounded-3xl shadow-lg border border-gray-100 dark:border-slate-700 p-8 mb-6">
               <div className="flex items-center gap-3 mb-6">
                 <div className="flex-1">
-                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Quantity</label>
+                  <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2 uppercase tracking-wider">Quantity</label>
                   <input
                     type="number"
                     min={1}
                     max={product.stock}
                     value={quantity}
                     onChange={e => setQuantity(parseInt(e.target.value) || 1)}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
+                    className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
                   />
                 </div>
               </div>
@@ -169,7 +169,7 @@ export default function ProductDetailPage() {
               <button
                 onClick={handleOrder}
                 disabled={product.stock === 0}
-                className="w-full bg-gradient-to-r from-indigo-600 to-pink-600 hover:from-indigo-700 hover:to-pink-700 disabled:from-gray-400 disabled:to-gray-400 text-white font-semibold py-3 rounded-lg transition shadow-lg hover:shadow-xl disabled:cursor-not-allowed"
+                className="w-full bg-gradient-to-r from-indigo-600 to-pink-600 hover:from-indigo-700 hover:to-pink-700 disabled:from-gray-400 disabled:to-gray-400 text-white font-bold py-4 rounded-lg transition shadow-lg hover:shadow-xl disabled:cursor-not-allowed text-lg"
               >
                 {product.stock > 0 ? 'Place Order' : 'Out of Stock'}
               </button>
@@ -191,19 +191,19 @@ export default function ProductDetailPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Reviews List */}
           <div className="lg:col-span-2">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Customer Reviews</h2>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">Customer Reviews</h2>
 
             {reviews.length === 0 ? (
-              <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-gray-100 dark:border-slate-700 p-8 text-center">
+              <div className="bg-white dark:bg-slate-800 rounded-3xl shadow-lg border border-gray-100 dark:border-slate-700 p-12 text-center">
                 <p className="text-gray-600 dark:text-gray-400 text-lg">No reviews yet. Be the first to review!</p>
               </div>
             ) : (
-              <div className="space-y-4">
+              <div className="space-y-5">
                 {reviews.map((review) => (
-                  <div key={review.id} className="bg-white dark:bg-slate-800 rounded-2xl shadow-md border border-gray-100 dark:border-slate-700 p-6 hover:shadow-lg transition">
+                  <div key={review.id} className="bg-white dark:bg-slate-800 rounded-3xl shadow-md border border-gray-100 dark:border-slate-700 p-6 hover:shadow-lg transition">
                     <div className="flex items-start justify-between mb-3">
                       <div>
-                        <p className="font-semibold text-gray-900 dark:text-white">{review.reviewer}</p>
+                        <p className="font-bold text-gray-900 dark:text-white text-lg">{review.reviewer}</p>
                         <div className="flex text-yellow-400 text-sm mt-1">
                           {[...Array(review.rating)].map((_, i) => (
                             <span key={i}>★</span>
@@ -221,16 +221,16 @@ export default function ProductDetailPage() {
           {/* Add Review */}
           {isAuthenticated && (
             <div className="lg:col-span-1">
-              <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-lg border border-gray-100 dark:border-slate-700 p-6 sticky top-24">
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Add Your Review</h3>
+              <div className="bg-white dark:bg-slate-800 rounded-3xl shadow-lg border border-gray-100 dark:border-slate-700 p-8 sticky top-24">
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Add Your Review</h3>
 
-                <div className="space-y-4">
+                <div className="space-y-5">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Rating</label>
+                    <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-3 uppercase tracking-wider">Rating</label>
                     <select
                       value={rating}
                       onChange={e => setRating(parseInt(e.target.value))}
-                      className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
+                      className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
                     >
                       {[5, 4, 3, 2, 1].map(r => (
                         <option key={r} value={r}>{r} Star{r !== 1 ? 's' : ''}</option>
@@ -239,18 +239,18 @@ export default function ProductDetailPage() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Review</label>
+                    <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-3 uppercase tracking-wider">Review</label>
                     <textarea
                       value={comment}
                       onChange={e => setComment(e.target.value)}
                       placeholder="Share your thoughts..."
-                      className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition h-24 resize-none"
+                      className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition h-28 resize-none"
                     />
                   </div>
 
                   <button
                     onClick={handleReview}
-                    className="w-full bg-gradient-to-r from-indigo-600 to-pink-600 hover:from-indigo-700 hover:to-pink-700 text-white font-semibold py-2 rounded-lg transition shadow-md hover:shadow-lg"
+                    className="w-full bg-gradient-to-r from-indigo-600 to-pink-600 hover:from-indigo-700 hover:to-pink-700 text-white font-bold py-3 rounded-lg transition shadow-md hover:shadow-lg"
                   >
                     Submit Review
                   </button>
